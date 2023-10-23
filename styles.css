@@ -1,0 +1,683 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#title {
+    background-image: url('images/bgpic.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 0;
+    position: relative;
+    z-index: 1;
+    height: 800px;
+}
+
+.title-description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    text-align: center;
+    opacity: 0.5;
+    font-weight: 700;
+    transition: opacity 0.3s ease;
+    color:whitesmoke;
+    cursor: pointer; /* Add cursor style to indicate interactivity */
+}
+
+.title-background:hover .title-description {
+    opacity: 1;
+}
+/* Dark overlay on hover */
+.title-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Make sure the overlay doesn't interfere with the content */
+}
+
+.title-background:hover .title-description {
+    opacity: 1;
+}
+
+.title-background:hover::before {
+    opacity: 0.5; /* Adjust the opacity for the hover effect */
+}
+/* Style for the "Let's Connect" button */
+.connect-btn {
+    position: absolute;
+    top: 70%; /* Adjust the vertical position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem; /* Adjust the font size as needed */
+    padding: 8px 16px; /* Adjust the padding as needed */
+    color: #fff !important; /* Set text color to white */
+    border-color: #fff !important; /* Set outline color to white */
+}
+.connect-btn:hover {
+    background-color: rgba(14, 28, 125, 0.84); /* Change background color on hover */
+}
+
+
+
+.navbar {
+    background-color: rgba(252, 252, 252,)!important;
+    position: absolute; /* Position the navbar absolutely within the title section */
+    width: 100%; /* Make the navbar span the entire width of the title section */
+    top: 0; /* Align the navbar to the top of the title section */
+    z-index: 2; /* Set a higher z-index than the title section background */
+    
+}
+
+/* Other styles remain unchanged */
+
+.navbar-brand img {
+    max-height: 120px; /* Adjust the max height of the logo */
+    margin-left: 10px; /* Add margin to the left of the logo */
+    margin-bottom: -30px;
+    margin-top: -40px;
+    margin-right: 100px;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 40px; /* Reduced the margin between nav links */
+    margin-bottom: 0px;
+}
+
+/* Override Bootstrap styles for nav-link */
+.navbar-nav .nav-link {
+    color: rgb(7, 17, 83) !important; /* Set the default color */
+    margin-right: 0px; /* Set margin to the right of each nav link */
+    transition: transform 0.3s ease-in-out; /* Add a smooth transition for the transform property */
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(2, 2, 25, 0.958) !important; /* Set the hover color to blue */
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+.fa-phone-alt{
+    color:rgb(7, 17, 83)
+}
+/* Style the custom toggle button */
+.navbar-toggler {
+    border: none;
+    background-color: transparent; /* Remove background color */
+    padding: 30px;
+    box-shadow: none;
+    outline: none;
+  
+}
+/* Override Bootstrap styles for active state */
+.navbar-toggler:focus,
+.navbar-toggler:active {
+    box-shadow:none;
+    border: none;
+}
+
+.custom-toggler-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: rgb(7, 17, 83);
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+}
+
+/* Change the background color only for the custom icon when active */
+.navbar-toggler:focus .custom-toggler-icon,
+.navbar-toggler:active .custom-toggler-icon {
+    background-color:rgba(2, 2, 25, 0.958);
+}
+
+.navbar-nav .nav-link.active {
+    color: rgba(2, 2, 25, 0.958) !important; /* Set the color for the active link */
+    font-weight: bold; /* Optionally, make the active link bold */
+}
+
+/* Move the phone number to the left margin */
+.navbar-nav .phone-number {
+    margin-left: 25px;
+}
+/* Initial state of the Features Heading */
+#features-heading-container {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+/* Animation when entering the viewport */
+#features-heading-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Initial state of the Features Row */
+#features-row {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+/* Animation when entering the viewport */
+#features-row.active {
+    margin-top: 50px;
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Features Section Heading */
+#features-heading-container h2 {
+    font-size: 2.5rem;
+    color: #17a2b8;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Features Row */
+#features-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+/* Features Item */
+.feature-item {
+    padding: 20px;
+    border: 1px solid rgb(7,17,83);
+    border-radius: 8px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.feature-item:hover {
+    transform: scale(1.05);
+}
+
+/* Features Item Icon */
+.feature-item i {
+    color: #17a2b8; /* Adjust the color as needed */
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+/* Features Item Heading */
+.feature-item h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    
+}
+
+/* Features Item Description */
+.feature-item p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Blue Gradient Background */
+.bg-blue-gradient {
+    background: linear-gradient(to right, #06124d, #3e91c8);
+    color: #fff; /* Set text color to white for better visibility */
+    
+}
+
+
+
+/* Style the Services Section Heading */
+#services h2 {
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Style the Services Section Paragraph */
+#services p {
+    color: #ffffff !important;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+/* Initial state of the Services Section */
+#services h2,
+#services p {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+}
+
+/* Animation when entering the viewport */
+#services.active h2,
+#services.active p {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Style for the Service Card Container */
+.card.service-card {
+    margin: auto;
+    margin-bottom: 5%;
+    width: 80%;
+    height: auto;
+    border: 2px solid #fff;
+    text-align: center;
+    background-color: transparent; /* Set your desired background color */
+    transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    text-decoration: none !important; /* Remove default link underline */
+}
+
+/* Change border color on hover */
+.card.service-card:hover {
+    border: 2px solid #17a2b8;
+    background-color: transparent; /* Set your desired background color on hover */
+}
+
+/* Style for the Service Card Titles */
+.card.service-card h5.card-title {
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255); /* Set text color to black */
+    margin-bottom: 10px;
+}
+
+/* Change color on hover for the title */
+.card.service-card:hover h5.card-title {
+    color: #17a2b8;
+}
+
+/* Style for the Service Card Descriptions */
+.card.service-card p.card-text {
+    font-size: 1rem;
+    color: rgb(255, 255, 255); /* Set text color to black */
+}
+
+/* Change color on hover for the description */
+.card.service-card:hover p.card-text {
+    color: #777;
+}
+#blog{
+    padding-bottom: 100px;
+}
+/* Style for the Our Blog Section Heading */
+.section-heading {
+    font-size: 2.5rem;
+    color:#17a2b8;
+    margin-top:50px;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Style for the Our Blog Section Paragraph */
+.text-muted {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 60px;
+}
+/* Style for the Blog Card Container */
+.card.blog-card {
+    position: relative;
+    overflow: hidden;
+    height:auto;
+    width: 120%;
+    border: 2px solid #ddd; /* Set your desired border color */
+    transition: border-color 0.3s ease-in-out; /* Add a transition for the border color */
+}
+
+/* Style for the Blog Card Image */
+.card.blog-card .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    transition: opacity 0.3s ease-in-out;
+}
+/* Initially hide the image */
+.card.blog-card .card-img-top {
+    opacity: 1;
+}
+
+/* Hide the image on hover and show the text and button */
+.card.blog-card:hover .card-img-top {
+    opacity: 0;
+}
+
+/* Style for the Blog Card Text and Button */
+.card.blog-card .card-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.card.blog-card:hover {
+    border-color: #17a2b8; /* Set your desired border color on hover */
+}
+/* Show the text and button on hover */
+.card.blog-card:hover .card-body {
+    opacity: 1;
+}
+
+/* Style for the Blog Card Titles and Descriptions */
+.card.blog-card .card-body h5.card-title{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card.blog-card .card-body p.card-text {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Style for the "Read More" button */
+.card.blog-card .card-body a.btn-primary {
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border:2px solid  #17a2b8;
+    color: #17a2b8; /* Set button text color to the desired color */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Add transition for button color change */
+}
+
+.card.blog-card .card-body a.btn-primary:hover {
+    background-color:#17a2b8;
+    color: #fff; /* Set button text color to white on hover */
+
+}
+
+/* Hide the text initially */
+.hidden {
+    display: none;
+}
+/* Add background color to the Contact Section */
+#contact {
+    padding: 20px 0;
+    background: linear-gradient(to right, #06124d, #3e91c8)!important; /* Linear gradient background */
+    color: #fff !important;/* Set text color to white for better visibility */
+}
+
+/* Style for the Contact Section Heading */
+#contact h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Style for the Contact Section Paragraph */
+#contact p {
+    font-size: 1.2rem;
+    color: #fff!important;
+    margin-bottom: 40px;
+}
+
+/* Style for the Contact Form Container */
+#contactForm {
+    margin-top: 30px;
+}
+
+/* Style for the Form Inputs and Textarea */
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style for the Form Button */
+#sendMessageButton {
+    background-color:#17a2b8;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* Change button color on hover */
+#sendMessageButton:hover {
+    background-color:#0d7281;
+}
+
+/* Style for the Page Bottom Section */
+#page-bottom {
+    background-color: #06124d; /* Set background color */
+    padding: 20px 0;
+    color: #fff; /* Set text color to white */
+}
+
+/* Style for the Logo */
+#logo {
+    max-width:auto; /* Adjust the max width of the logo */
+    max-height: 100px;
+
+}
+
+/* Style for Social Media Links */
+#social-media {
+    margin-top: 20px;
+    
+}
+
+#social-media a {
+    font-size: 1.5rem;
+    margin-right: 20px;
+    color: #fff; /* Set social media icon color */
+    transition: color 0.3s ease-in-out;
+}
+
+/* Change social media icon color on hover */
+#social-media a:hover {
+    color: #3e91c8; /* Set hover color */
+}
+
+/* Style for Copyright Text */
+#copyright {
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+/*after service page*/
+
+
+.page-transition {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    #title {
+        height: 600px;
+        padding: 80px 0;
+    }
+
+    .title-description {
+        font-size: 2rem;
+    }
+    .connect-btn {
+        font-size: 0.8rem; /* Adjust font size for smaller screens */
+        padding: 6px 12px; /* Adjust padding for smaller screens */
+        top: 70%; /* Adjust vertical position for smaller screens */
+    }
+    #features-heading-container h2 {
+        font-size: 2rem; /* Decrease font size for smaller screens */
+    }
+
+    /* Adjust padding for feature items on smaller screens */
+    .feature-item {
+        padding: 15px;
+        margin: auto;
+        width: 80%;
+        height: auto;
+
+    }
+    #services h2 {
+        font-size: 2rem; /* Decrease font size for smaller screens */
+    }
+
+    #services p {
+        font-size: 1rem; /* Decrease font size for smaller screens */
+    }
+
+    .card.service-card{
+        width: 65%;
+        height: auto;
+    }
+    .section-heading {
+        font-size: 2rem;
+    }
+
+    .text-muted {
+        font-size: 1rem;
+    }
+    .card.blog-card {
+        height: auto;
+        width: 80%;
+        margin: auto;
+    }
+
+    .card.blog-card .card-img {
+        height: auto; /* Adjust height for smaller screens */
+        width: 60%;
+    }
+    
+    .card.blog-card .card-body p.card-text {
+    font-size: 0.9rem;
+    }
+    .card.blog-card .card-body h5.card-title{
+        font-size: 1rem;
+    }
+    .card.blog-card .btn {
+        font-size: 0.8rem; /* Adjust font size for smaller screens */
+    }
+    /* Adjust padding for the Contact Section */
+    #contact {
+        padding: 60px 40px;
+    }
+
+    /* Adjust font size for smaller screens */
+    #contact h2 {
+        font-size: 2rem;
+    }
+
+    /* Adjust margin bottom for smaller screens */
+    #contact p {
+        margin-bottom: 30px;
+        font-size: 1rem;
+    }
+    /* Adjust padding for form inputs and textarea */
+    #contactForm input,
+    #contactForm textarea {
+        padding: 8px;
+    }
+
+    /* Adjust padding for the Form Button */
+    #sendMessageButton {
+        padding: 10px 15px;
+        font-size:0.8rem;
+    }
+       /* Adjust styling for smaller screens */
+       #page-bottom {
+        text-align: center;
+    }
+
+    #logo {
+        margin-bottom: 15px;
+    
+    }
+
+    #social-media {
+        margin-top: 15px;
+      
+    }
+
+    #social-media a {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+        
+    
+}
+
+@media (max-width: 576px) {
+    #title {
+        height: 500px;
+        padding: 60px 0;
+    }
+
+    .title-description {
+        font-size: 1.8rem;
+    }
+    .connect-btn {
+        font-size: 0.7rem; /* Further adjust font size for even smaller screens */
+        padding: 5px 10px; /* Further adjust padding for even smaller screens */
+        top: 65%; /* Further adjust vertical position for even smaller screens */
+    }
+    #features-heading-container h2 {
+        font-size: 1.8rem; /* Further decrease font size for even smaller screens */
+    }
+
+    /* Further adjust padding for feature items on even smaller screens */
+    .feature-item {
+        padding: 10px;
+        margin: auto;
+        height: auto;
+        width: 75%;
+    }
+    #services h2 {
+        font-size: 1.8rem; /* Further decrease font size for even smaller screens */
+    }
+
+    #services p {
+        font-size: 0.9rem; /* Further decrease font size for even smaller screens */
+    }
+    .section-heading {
+        font-size: 1.8rem;
+    }
+
+    .text-muted {
+        font-size: 0.9rem;
+    }
+    
+}
+
+
+
+
+
+
+    
+
+
